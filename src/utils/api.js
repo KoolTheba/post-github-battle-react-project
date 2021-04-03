@@ -1,3 +1,7 @@
+import { GITHUB_CLIENT_ID, GITHUB_SECRET_ID} from './config'
+
+const params = `?client_id=${GITHUB_CLIENT_ID}&client_secret=${GITHUB_SECRET_ID}`
+
 function getErrorMessage(message, username){
     if(message === 'Not Found'){
         return `${username} doesn't exist`
