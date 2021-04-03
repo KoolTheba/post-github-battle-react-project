@@ -106,6 +106,12 @@ function PlayerPreview({username, onReset, label}){
     )
 }
 
+PlayerPreview.propTypes = {
+    username: PropTypes.string.isRequired,
+    onReset: PropTypes.func.isRequired,
+    label: PropTypes.string.isRequired
+}
+
 export default class Battle extends React.Component {
     constructor(props){
         super(props)
