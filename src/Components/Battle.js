@@ -122,6 +122,7 @@ export default class Battle extends React.Component {
         }
 
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleReset = this.handleReset.bind(this)
     }
 
     handleSubmit(id, player){
@@ -130,6 +131,11 @@ export default class Battle extends React.Component {
         })
     }
 
+    handleReset(id){
+        this.setState({
+            [id]: null
+        })
+    }
 
     render(){
         const { playerOne, playerTwo } = this.state
@@ -139,21 +145,23 @@ export default class Battle extends React.Component {
                 <div className='players-container'>
                     <h1 className='center-text header-lg'>Players</h1>
                     <div className='row space-around'>
-                        {playerOne === null && (
-                            <PlayerInput 
+                        {playerOne === null 
+                            ? <PlayerInput 
                                 label='Player One'
                                 onSubmit={(player) => this.handleSubmit('playerOne', player)}
                             />
-                        )}
-                        {playerTwo === null && (
-                            <PlayerInput 
+                            : <PlayerPreview username={playerOne} label='Player One' onReset={() => this.handleReset('playerOne')} />
+                    
+                        }
+                        {playerTwo === null 
+                            ? <PlayerInput 
                                 label='Player Two'
                                 onSubmit={(player) => this.handleSubmit('playerTwo', player)}
                             />
-                        )}
+                            : <PlayerPreview username={playerTwo} label='Player Two' onReset={() => this.handleReset('playerTwo')} />
+                        }
                     </div>
                 </div>
-                {/* <PlayerInput label='Label!' onSubmit={(value) => console.log('value!', value)}/> */}
             </React.Fragment>
         )
     }
