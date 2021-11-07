@@ -5,6 +5,7 @@ import { battle } from '../utils/api'
 
 import { FaCompass, FaBriefcase, FaUsers, FaUserFriends, FaUser } from 'react-icons/fa'
 import Card from './Card'
+import Loading from './Loading'
 
 function ProfileList({ profile }){
     return(
@@ -77,7 +78,7 @@ export default class Results extends React.Component {
         const { onReset } = this.props
 
         if(loading === true){
-            return <p>Loading...</p>
+            return <Loading text='Battling' />
         }
 
         if(error){
