@@ -1,4 +1,9 @@
 import React from 'react'
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom'
+
 import { ThemeProvider } from './contexts/theme'
 
 import Popular from './components/Popular'
@@ -23,14 +28,17 @@ class App extends React.Component {
   
   render(){
     return (
-      <ThemeProvider value={this.state}>
-        <div className={this.state.theme}>
-          <div className='container'>
-            <Nav />
-            <Battle />
+      <Router>
+        <ThemeProvider value={this.state}>
+          <div className={this.state.theme}>
+            <div className='container'>
+              <Nav />
+              <Route exact path={'/'} component={Popular} />
+              <Route path={'/battle'} component={Battle} />
+            </div>
           </div>
-        </div>
-      </ThemeProvider>
+        </ThemeProvider>
+      </Router>
     )
   }
 }
