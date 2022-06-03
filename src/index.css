@@ -53,6 +53,10 @@ li {
   cursor: pointer;
 }
 
+.nav li {
+  margin-right: 10px;
+}
+
 .dark {
   color: #dadada;
   background-color: #141414;
@@ -66,6 +70,10 @@ li {
 
 .space-around {
   justify-content: space-around;
+}
+
+.space-between {
+  justify-content: space-between;
 }
 
 .header-lg {
