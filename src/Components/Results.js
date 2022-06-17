@@ -9,6 +9,7 @@ import { FaCompass, FaBriefcase, FaUsers, FaUserFriends, FaUser } from 'react-ic
 import Card from './Card'
 import Loading from './Loading'
 import Tooltip from './Tooltip'
+import { Fragment } from 'react/cjs/react.production.min'
 
 function ProfileList ({ profile }){
     return(
@@ -79,6 +80,7 @@ export default class Results extends React.Component {
 
     render() {
         const { winner, loser, error, loading } = this.state
+        const { onReset } = this.props
 
         if(loading === true){
             return <Loading text='Battling' />
@@ -86,7 +88,15 @@ export default class Results extends React.Component {
 
         if(error){
             return (
-                <p className='center-text error'>{error}</p>
+                <Fragment>
+                    <p className='center-text error'>{error}</p>
+                    <Link
+                        className='btn light-btn btn-space'
+                        to='/battle'
+                    >
+                    Reset
+                    </Link>
+                </Fragment>
             )
         }
 
