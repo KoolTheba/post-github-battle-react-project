@@ -80,7 +80,6 @@ export default class Results extends React.Component {
 
     render() {
         const { winner, loser, error, loading } = this.state
-        const { onReset } = this.props
 
         if(loading === true){
             return <Loading text='Battling' />
