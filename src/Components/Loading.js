@@ -5,8 +5,8 @@ const styles = {
     content: {
         fontSize: '35px',
         position: 'absolute',
-        left: '0',
-        rigth: '0',
+        left: '40%',
+        top: '30%',
         marginTop: '20px',
         textAlign: 'center'
     }
